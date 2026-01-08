@@ -4,11 +4,20 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "**.md"
+      - "LICENSE"
+      - ".gitignore"
+      - "assets/screenshots/**"
+      - "docs/**"
 
 jobs:
   build:
     name: Build Android APK
     runs-on: ubuntu-latest
+    concurrency:
+      group: eas-build-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
