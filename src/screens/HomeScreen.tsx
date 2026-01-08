@@ -113,7 +113,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchRow}>
+      <View style={[styles.searchRow, { paddingTop: insets.top + 12 }]}>
         <TextInput
           placeholder="Search notes by name"
           style={styles.searchInput}
@@ -256,7 +256,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     paddingHorizontal: 16,
-    marginTop: 12,
     marginBottom: 12,
     alignItems: "center",
   },

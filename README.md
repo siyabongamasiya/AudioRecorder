@@ -1,50 +1,254 @@
-# Welcome to your Expo app 👋
+# 🎙️ Voice Journal - Audio Recorder App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A beautiful and intuitive voice journal application built with React Native and Expo. Record, organize, and playback your audio notes seamlessly on iOS and Android.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 App Designs
 
-   ```bash
-   npm install
-   ```
+<!-- Add your app screenshots here -->
+<div align="center">
+  <img src="./assets/screenshots/splash.png" width="200" alt="Splash Screen" />
+  <img src="./assets/screenshots/home.png" width="200" alt="Home Screen" />
+  <img src="./assets/screenshots/recording.png" width="200" alt="Recording Screen" />
+  <img src="./assets/screenshots/playback.png" width="200" alt="Playback" />
+</div>
 
-2. Start the app
+> **Note:** Add your app screenshots to `assets/screenshots/` folder
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## Features
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+-  **High-Quality Audio Recording** - Record voice notes with crystal clear audio
+- **Audio Playback** - Play, pause, and seek through your recordings
+- **Waveform Visualization** - Visual representation of audio with animated waveforms
+- **Search Functionality** - Find your notes quickly by name
+- **Rename Notes** - Organize your recordings with custom names
+- **Persistent Storage** - All notes saved locally with AsyncStorage
+- **Backup & Export** - Export/import your notes as JSON with audio files
+- **Clean UI/UX** - Modern, intuitive interface with smooth animations
+- **Accessibility** - Full accessibility labels and roles
+- **Dark Mode Ready** - Supports system theme preferences
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## Tech Stack
 
-When you're ready, run:
+- **Framework:** React Native (Expo)
+- **Language:** TypeScript
+- **Navigation:** React Navigation (Native Stack)
+- **Audio:** expo-av
+- **Storage:** AsyncStorage
+- **File System:** expo-file-system
+- **Animations:** React Native Animated API
+- **Build:** EAS Build
+- **CI/CD:** GitHub Actions
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Expo CLI
+- EAS CLI (for builds)
+
+### Clone the Repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/YOUR_USERNAME/AudioRecorder.git
+cd AudioRecorder
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Install Dependencies
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Running the App
 
-## Join the community
+### Development Mode
 
-Join our community of developers creating universal apps.
+Start the Expo development server:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm start
+```
+
+Or run directly on a platform:
+
+```bash
+# Android
+npm run android
+
+# iOS
+npm run ios
+
+# Web
+npm run web
+```
+
+### Using Expo Go
+
+1. Install [Expo Go](https://expo.dev/client) on your device
+2. Run `npm start`
+3. Scan the QR code with your device
+
+---
+
+## Building the App
+
+### EAS Build (Recommended)
+
+#### Build APK for Android
+
+```bash
+npx eas build --platform android --profile preview
+```
+
+#### Build Production APK
+
+```bash
+npx eas build --platform android --profile production
+```
+
+#### iOS Build
+
+```bash
+npx eas build --platform ios --profile preview
+```
+
+### Automated Builds with GitHub Actions
+
+This project includes a GitHub Actions workflow that automatically builds the Android APK on every push to `main`.
+
+**Setup:**
+
+1. Generate an Expo access token: https://expo.dev/settings/access-tokens
+2. Add it as a GitHub secret named `EXPO_TOKEN`
+3. Push to `main` branch - builds run automatically!
+
+---
+
+## 📂 Project Structure
+
+```
+AudioRecorder/
+├── .github/
+│   └── workflows/
+│       └── eas-build.yml       # GitHub Actions CI/CD
+├── assets/
+│   └── images/
+│       └── logo_audio_recorder.png
+├── src/
+│   ├── components/
+│   │   ├── playback-bar.tsx
+│   │   ├── rename-modal.tsx
+│   │   ├── voice-note-card.tsx
+│   │   └── waveform.tsx
+│   ├── contexts/
+│   │   └── VoiceNotesContext.tsx
+│   ├── hooks/
+│   │   ├── useAudioPlayer.ts
+│   │   └── useAudioRecorder.ts
+│   ├── navigation/
+│   │   └── AppNavigator.tsx
+│   ├── screens/
+│   │   ├── HomeScreen.tsx
+│   │   ├── RecordingScreen.tsx
+│   │   ├── SettingsScreen.tsx
+│   │   └── SplashScreen.tsx
+│   ├── utils/
+│   │   ├── backup.ts
+│   │   ├── seeded-random.ts
+│   │   └── storage.ts
+│   └── types.ts
+├── App.tsx
+├── app.json
+├── eas.json
+├── package.json
+└── tsconfig.json
+```
+
+---
+
+## Key Components
+
+### Audio Recording
+
+- **Hook:** `useAudioRecorder` - Manages recording state and permissions
+- **Screen:** `RecordingScreen` - UI for recording with timer
+
+### Audio Playback
+
+- **Hook:** `useAudioPlayer` - Handles playback, pause, resume, seek
+- **Component:** `PlaybackBar` - Bottom playback controls with progress
+
+### Note Management
+
+- **Context:** `VoiceNotesContext` - Global state for notes (add, remove, rename)
+- **Storage:** AsyncStorage persistence
+
+### Waveform Visualization
+
+- **Component:** `Waveform` - Animated audio waveform preview
+- **Utility:** `seeded-random` - Deterministic peak generation
+
+
+---
+
+## Configuration
+
+### EAS Build Profiles
+
+Edit `eas.json` to customize build configurations:
+
+```json
+{
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  }
+}
+```
+
+### App Configuration
+
+Edit `app.json` for:
+
+- App name and slug
+- Icon and splash screen
+- Android package name
+- Permissions
+
+---
+
+## Author
+
+**Siyabonga Khanyile**
+
+- GitHub: [@siyabongamasiya](https://github.com/siyabongamasiya)
+
+---
+
+## Acknowledgments
+
+- Built with [Expo](https://expo.dev)
+- Audio powered by [expo-av](https://docs.expo.dev/versions/latest/sdk/av/)
+- Navigation by [React Navigation](https://reactnavigation.org)
+
+---
+
