@@ -113,9 +113,6 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Voice Journal</Text>
-      </View>
       <View style={styles.searchRow}>
         <TextInput
           placeholder="Search notes by name"
