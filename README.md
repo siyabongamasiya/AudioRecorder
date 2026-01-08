@@ -32,10 +32,7 @@ A beautiful and intuitive voice journal application built with React Native and 
 - **Search Functionality** - Find your notes quickly by name
 - **Rename Notes** - Organize your recordings with custom names
 - **Persistent Storage** - All notes saved locally with AsyncStorage
-- **Backup & Export** - Export/import your notes as JSON with audio files
 - **Clean UI/UX** - Modern, intuitive interface with smooth animations
-- **Accessibility** - Full accessibility labels and roles
-- **Dark Mode Ready** - Supports system theme preferences
 
 ---
 
@@ -64,7 +61,7 @@ A beautiful and intuitive voice journal application built with React Native and 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AudioRecorder.git
+git clone https://github.com/siyabongamasiya/AudioRecorder.git
 cd AudioRecorder
 ```
 
