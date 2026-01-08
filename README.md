@@ -1,26 +1,32 @@
-# 🎙️ Voice Journal - Audio Recorder App
+# Audio Recoder - Audio Recorder App
 
 A beautiful and intuitive voice journal application built with React Native and Expo. Record, organize, and playback your audio notes seamlessly on iOS and Android.
 
+## Download
+
+[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://expo.dev/artifacts/eas/9K3DCqTVQ5sEzWav2BHAvZ.apk)
+
+**Android:** [Download Latest APK](https://expo.dev/artifacts/eas/9K3DCqTVQ5sEzWav2BHAvZ.apk)
+
 ---
 
-## 📱 App Designs
+## App Designs
 
 <!-- Add your app screenshots here -->
 <div align="center">
-  <img src="./assets/screenshots/splash.png" width="200" alt="Splash Screen" />
-  <img src="./assets/screenshots/home.png" width="200" alt="Home Screen" />
-  <img src="./assets/screenshots/recording.png" width="200" alt="Recording Screen" />
-  <img src="./assets/screenshots/playback.png" width="200" alt="Playback" />
+  <img src="./assets/screenshots/splash_screen.jpg" width="200" alt="Splash Screen" />
+  <img src="./assets/screenshots/home_navigating.jpg" width="200" alt="Home Screen" />
+  <img src="./assets/screenshots/recording_screen.jpg" width="200" alt="Recording Screen" />
+  <img src="./assets/screenshots/home_playing_audio.jpg" width="200" alt="Playback" />
 </div>
 
-> **Note:** Add your app screenshots to `assets/screenshots/` folder
+>
 
 ---
 
 ## Features
 
--  **High-Quality Audio Recording** - Record voice notes with crystal clear audio
+- **High-Quality Audio Recording** - Record voice notes with crystal clear audio
 - **Audio Playback** - Play, pause, and seek through your recordings
 - **Waveform Visualization** - Visual representation of audio with animated waveforms
 - **Search Functionality** - Find your notes quickly by name
@@ -199,7 +205,6 @@ AudioRecorder/
 - **Component:** `Waveform` - Animated audio waveform preview
 - **Utility:** `seeded-random` - Deterministic peak generation
 
-
 ---
 
 ## Configuration
@@ -251,4 +256,3 @@ Edit `app.json` for:
 - Navigation by [React Navigation](https://reactnavigation.org)
 
 ---
-
