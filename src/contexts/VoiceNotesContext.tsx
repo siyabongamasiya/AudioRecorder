@@ -1,3 +1,4 @@
+import * as FileSystem from "expo-file-system";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { VoiceNote } from "../types/index";
 import { getJson, setJson } from "../utils/storage";
@@ -41,6 +42,16 @@ export function VoiceNotesProvider({
   }
 
   async function remove(id: string) {
+    const note = notes.find((n) => n.id === id);
+    if (note?.audioUri) {
+      try {
+        await (FileSystem as any).deleteAsync(note.audioUri, {
+          idempotent: true,
+        });
+      } catch (e) {
+        console.warn("Failed to delete audio file", e);
+      }
+    }
     const next = notes.filter((n) => n.id !== id);
     setNotes(next);
     await setJson<VoiceNote[]>(KEY, next);

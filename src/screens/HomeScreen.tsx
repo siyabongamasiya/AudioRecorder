@@ -168,12 +168,19 @@ export default function HomeScreen() {
                   note={item}
                   isPlaying={!!(isPlaying && currentUri === item.audioUri)}
                   progress={progress}
-                  onPlay={() => {
+                  onPlay={async () => {
                     if (currentUri === item.audioUri) {
                       if (isPlaying) pause();
                       else resume();
                     } else {
-                      loadAndPlay(item.audioUri);
+                      try {
+                        await loadAndPlay(item.audioUri);
+                      } catch (e) {
+                        Alert.alert(
+                          "Playback Error",
+                          "This audio file may have been deleted or is corrupted. Try deleting this note."
+                        );
+                      }
                     }
                   }}
                   onOptions={() => onOptions(item)}

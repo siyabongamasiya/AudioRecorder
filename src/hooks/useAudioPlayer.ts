@@ -36,7 +36,11 @@ export function useAudioPlayer() {
         }
       });
     } catch (e) {
-      console.warn("loadAndPlay", e);
+      console.warn("loadAndPlay failed - file may be missing", e);
+      setCurrentUri(null);
+      setIsPlaying(false);
+      setPositionMillis(0);
+      setDurationMillis(0);
       throw e;
     }
   }
